@@ -12,11 +12,10 @@
         twtTexBox.classList.add('twtTextBox');
 
         const textBoxElements = `
-        <textarea class='twtTextArea' >
-        Seriously, if unless you want an absolutely positioned element, don't use one. And you almost never need an absolute element, since DOM is based off of HTML (v2) which is based on free-flowing text.
+        <textarea class='twtTextArea'>
         </textarea>
         
-        <button class='twtBtn'>tweet</button>
+        <a class='twtBtn'>tweet</a>
         
         `;
 
@@ -78,27 +77,46 @@ let twtDropMenu;
  
 
 function blueBird(e, selection) {
-
     
-    dropMenu.addEventListener('click', () => {
-        const URL = location.href;
+    const URL = location.href;
+    
+    twitterBtn.addEventListener('click', () => {
+        
         twitterBtn.href = `https://twitter.com/intent/tweet?hashtags=bluebird&url=${URL}&text=${selection}`;
     })
+
+    const twtBtn = document.querySelector('.twtBtn');
+     
     
+    
+
+   
 
     TweetWithCommentBtn.addEventListener('click', () => {
         const twtModal = document.querySelector('.twtModal');
-        const twtBtn = document.querySelector('.twtBtn');
         const twtTextArea = document.querySelector('.twtTextArea');
+        
         twtModal.classList.add('active');
-
-        twtModal.addEventListener('click', () => {
-            twtModal.classList.remove('active');
-        })
-
-            
+        twtTextArea.innerHTML = selection;
+        
 
 
+        window.onclick = (e) => {
+            if (e.target == twtModal) {
+                twtModal.classList.remove('active');
+            }
+        }
+
+
+    })
+
+    twtBtn.addEventListener('click', () => {
+        
+        twitterBtn.setAttribute('target', '_blank');
+        twitterBtn.setAttribute('rel', 'nofollow noopener');
+        twitterBtn.setAttribute('aria-label', 'share as tweet');
+        const twtTextArea = document.querySelector('.twtTextArea').innerHTML;
+        twtBtn.href = `https://twitter.com/intent/tweet?hashtags=bluebird&url=${URL}&text=${twtTextArea}`;
     })
 
     dropMenu.classList.add('active');
