@@ -1,3 +1,34 @@
+    function createTwitterModal() {
+        const twitterModal = document.createElement('div');
+        twitterModal.classList.add('twtModal');
+        document.body.appendChild(twitterModal);
+    }
+
+    createTwitterModal();
+
+    function createTwtTextBox() {
+        const twtTexBox = document.createElement('div');
+        const twitterModal = document.querySelector('.twtModal');
+        twtTexBox.classList.add('twtTextBox');
+
+        const textBoxElements = `
+        <textarea class='twtTextArea' >
+        Seriously, if unless you want an absolutely positioned element, don't use one. And you almost never need an absolute element, since DOM is based off of HTML (v2) which is based on free-flowing text.
+        </textarea>
+        
+        <button class='twtBtn'>tweet</button>
+        
+        `;
+
+        twtTexBox.innerHTML = textBoxElements;
+
+
+        twitterModal.appendChild(twtTexBox);
+    }
+
+    createTwtTextBox();
+
+    
     function createDropMenu() {
             const dropMenu = document.createElement('div');
             dropMenu.classList.add('twtDropMenu');
@@ -41,6 +72,7 @@
 
 const twitterBtn = document.querySelector('.twitterBtn');
 const dropMenu = document.querySelector('.twtDropMenu');
+const TweetWithCommentBtn = document.querySelector('.twtWithComment');
 let twtDropMenu;
 
  
@@ -53,6 +85,22 @@ function blueBird(e, selection) {
         twitterBtn.href = `https://twitter.com/intent/tweet?hashtags=bluebird&url=${URL}&text=${selection}`;
     })
     
+
+    TweetWithCommentBtn.addEventListener('click', () => {
+        const twtModal = document.querySelector('.twtModal');
+        const twtBtn = document.querySelector('.twtBtn');
+        const twtTextArea = document.querySelector('.twtTextArea');
+        twtModal.classList.add('active');
+
+        twtModal.addEventListener('click', () => {
+            twtModal.classList.remove('active');
+        })
+
+            
+
+
+    })
+
     dropMenu.classList.add('active');
     dropMenu.style.top = e.pageY + 'px';
     dropMenu.style.left = e.pageX + 'px';
@@ -70,7 +118,7 @@ function hideDropMenu() {
 document.addEventListener('mouseup', (e) => {
     dropMenu.classList.remove('active');
 
-    if(!document.getSelection().anchorNode.parentElement){return};
+    if(!document.getSelection().anchorNode.parentElement){return;}
         clearTimeout(twtDropMenu);
         
         const selection = document.getSelection().toString();

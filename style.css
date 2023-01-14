@@ -36,8 +36,8 @@
     padding: .4rem;
     padding-left: .2rem;
     position: absolute;
-    width: 10rem;
-    height: 4rem;
+    width: 160px;
+    height: 64px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -57,4 +57,77 @@
     transform: scale(1);
     transition: transform 200ms ease-out, opacity 250ms ease-out;
 }
+
+
+/**
+
+
+
+**/
+
+.twtModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    background-color: rgba(30, 30, 30, .3);
+}
+
+.twtModal.active {
+    display: flex;
+}
+
+.twtTextBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 34rem;
+    height: 20rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -17rem;
+    top: 50%;
+    margin-top: -10rem;
+    z-index: 9999;
+    background: #fff;
+    border-radius: 8px;
+}
+
+
+.twtTextBox button {
+
+    border: none;
+    border: 1px solid #00acee;
+    background: #00acee;
+    border-radius: 24px;
+    padding: 25px;
+    padding-block: 10px;
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    
+}
+
+
+
+.twtTextBox textarea {
+    resize: none;
+    position: relative;
+    min-width: 90%;
+    height: 65%;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 12pt;
+    text-align: justify;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 
