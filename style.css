@@ -1,4 +1,4 @@
-.twtWithComment, .twitterBtn {
+.twtWithComment, .twitterBtn, .twtWithComment:visited, .twitterBtn:visited {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -12,6 +12,7 @@
     padding-left: .25rem;
     border-radius: 2px;
     transition: opacity 100ms ease-in-out;
+
 
 }
 
@@ -99,7 +100,7 @@
 }
 
 
-.twtTextBox a, .twtTextBox a:hover {
+.twtTextBox a, .twtTextBox a:hover, .twtTextBox a:visited {
     text-decoration: none;
     border: 1px solid #00acee;
     background: #00acee;
@@ -126,6 +127,10 @@
     text-align: justify;
     border: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.twtTextBox textarea:focus {
+    outline: none;
 }
 
 

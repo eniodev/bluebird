@@ -74,6 +74,8 @@ const dropMenu = document.querySelector('.twtDropMenu');
 const TweetWithCommentBtn = document.querySelector('.twtWithComment');
 let twtDropMenu;
 
+
+
  
 
 function blueBird(e, selection) {
@@ -87,14 +89,16 @@ function blueBird(e, selection) {
 
     const twtBtn = document.querySelector('.twtBtn');
      
-    
+    const twtTextArea = document.querySelector('.twtTextArea');
     
 
-   
+    twtBtn.setAttribute('target', '_blank');
+    twtBtn.setAttribute('rel', 'nofollow noopener');
+    twtBtn.setAttribute('aria-label', 'share as tweet');
 
     TweetWithCommentBtn.addEventListener('click', () => {
         const twtModal = document.querySelector('.twtModal');
-        const twtTextArea = document.querySelector('.twtTextArea');
+        
         
         twtModal.classList.add('active');
         twtTextArea.innerHTML = selection;
@@ -110,12 +114,12 @@ function blueBird(e, selection) {
 
     })
 
+
+
+
     twtBtn.addEventListener('click', () => {
         
-        twitterBtn.setAttribute('target', '_blank');
-        twitterBtn.setAttribute('rel', 'nofollow noopener');
-        twitterBtn.setAttribute('aria-label', 'share as tweet');
-        const twtTextArea = document.querySelector('.twtTextArea').innerHTML;
+        const twtTextArea = document.querySelector('.twtTextArea').value;
         twtBtn.href = `https://twitter.com/intent/tweet?hashtags=bluebird&url=${URL}&text=${twtTextArea}`;
     })
 
